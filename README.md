@@ -1,4 +1,4 @@
-# Chapter 1. Docker and Basic Commands 
+# Docker and Basic Commands 
 ---
 ## VM vs. Containers
 - Resource efficiency: VMs include full guest OSes; containers share the host kernel and are lighter and faster.
