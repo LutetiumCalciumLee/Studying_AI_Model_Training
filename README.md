@@ -1,4 +1,4 @@
-# Chapter 3. Machine Learning Basics
+# Machine Learning Basics
 ***
 ## What is k-Nearest Neighbors (k-NN)?
 - A simple and intuitive algorithm for **supervised learning** used in classification and regression.
