@@ -1,4 +1,4 @@
-# Chapter 2. Python-based API Server Development
+# Python-based API Server Development
 
 ---
 
