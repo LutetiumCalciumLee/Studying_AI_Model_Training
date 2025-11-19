@@ -1,5 +1,5 @@
 <details>
-<summary>English Version</summary>
+<summary>ENG (English Version)</summary>
 
 # Studying AI Model Training
 
@@ -19,7 +19,7 @@
 </details>
 
 <details>
-<summary>한글 버전</summary>
+<summary>KOR (한국어 버전)</summary>
 
 # 인공지능 모델 훈련 학습
 
