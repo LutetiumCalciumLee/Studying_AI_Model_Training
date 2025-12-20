@@ -1,7 +1,7 @@
 <details>
 <summary>ENG (English Version)</summary>
 
-## Chapter 5 – LangChain Overview & Structure
+## LangChain Overview & Structure
 
 **Section 1: LangChain Core Components**
 - LangChain: Open-source framework connecting LLMs to external data/tools; enables complex LLM applications via chaining.
@@ -28,7 +28,7 @@
 <details>
 <summary>KOR (한국어 버전)</summary>
 
-## 5장 – LangChain 개요와 구조
+## LangChain 개요와 구조
 
 **LangChain 핵심 구성요소**
 - LangChain: LLM 기반 애플리케이션 개발 오픈소스 프레임워크; 외부 데이터/도구와 LLM 연결(Chain).
