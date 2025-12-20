@@ -1,56 +1,117 @@
-# Generative Adversarial Network (GAN)
-***
-## What is a Generative Adversarial Network (GAN)?
-- A GAN (Generative Adversarial Network) is a type of generative model where two neural networks, the **Generator** and the **Discriminator**, compete against each other .
-- The **Generator**'s job is to create artificial data (like images) from random noise, trying to make it as realistic as possible .
-- The **Discriminator**'s job is to evaluate the data it receives and determine whether it is real (from an actual dataset) or fake (created by the Generator) .
-- Through this competitive process, the Generator becomes progressively better at creating convincing fakes, while the Discriminator gets better at spotting them .
+<details>
+<summary>ENG (English Version)</summary>
 
-## Core Concepts of GAN
-- **Generator (G)**: This network takes a random noise vector (from a latent space, `Z-Dim`) as input and attempts to transform it into a sample that resembles the true data distribution (e.g., a 28x28 image).
-- **Discriminator (D)**: This network acts as a binary classifier. It takes a data sample (either real or fake) as input and outputs a probability of the sample being real. It is trained to output `1` for real images and `0` for fake ones.
+## **Generative Adversarial Network (GAN)**
 
-## Training Process
-The training of a GAN follows an adversarial strategy broken down into three main steps:
-1.  The Discriminator is trained on a batch of real images from the dataset, learning to classify them as real (output `1`).
-2.  The Discriminator is then trained on a batch of fake images produced by the Generator, learning to classify them as fake (output `0`).
-3.  The Generator is trained to produce images that fool the Discriminator. In this step, the Discriminator's weights are frozen, and the Generator's weights are updated to maximize the Discriminator's error (i.e., make it output `1` for a fake image).
+### **What is GAN?**
+- GAN consists of two neural networks: a **Generator** and a **Discriminator**.
+- The Generator creates fake data from noise; the Discriminator tries to distinguish real from fake.
+- As training progresses, the Generator gets better at fooling the Discriminator.
 
-## Python Implementation Overview
-- **Goal**: To build and train a GAN to generate new images based on Google's "Quick, Draw!" dataset (specifically, 28x28 images of camels).
-- **Process**:
-    - **Model Building**: The architecture consists of a Generator and a Discriminator built with `Conv2D` and `Conv2DTranspose` layers. The document specifies hyperparameters for both networks, including filter sizes, kernel sizes, strides, and learning rates.
-    - **Custom GAN Class**: A custom `GAN` class encapsulates the logic for building the generator, discriminator, and the combined adversarial model. It also contains the training methods.
-    - **Training**: The model is compiled with an optimizer (e.g., `rmsprop`) and trained on the image dataset. A custom `train` method alternates between training the discriminator and the generator for a set number of epochs.
-    - **Visualization**: During training, the loss and accuracy for both the Generator and Discriminator are plotted to monitor performance.
-- **Example GAN Training Code Snippet**:
-    ```python
-    # Define the GAN model with specified hyperparameters
-    gan = GAN(
-        input_dim = (28,28,1),
-        discriminator_learning_rate = 0.0008,
-        generator_learning_rate = 0.0004,
-        z_dim = 100
-    )
+### **Core Components**
+- **Generator (G)**: Converts a latent noise vector (`z`) into a realistic data sample (e.g., 28x28 image).
+- **Discriminator (D)**: Acts as a binary classifier that outputs the probability of a sample being real.
 
-    # Compile and train the model
-    gan.train(
-        images,
-        batch_size = 64,
-        epochs = 2,
-        run_folder = RUN_FOLDER
-    )
+### **Training Process**
+1. Train Discriminator with **real images** → label as `1`.
+2. Train Discriminator with **fake images** → label as `0`.
+3. Train Generator to **fool the Discriminator** → aim to produce images classified as real (`1`).
 
-    # Plot the losses to visualize training progress
-    plt.plot([x[0] for x in gan.d_losses], color='black') # Discriminator loss
-    plt.plot([x[0] for x in gan.g_losses], color='orange') # Generator loss
-    plt.show()
-    ```
+### **Python Implementation**
+- **Goal**: Train a GAN to generate 28x28 camel drawings from the “Quick, Draw!” dataset.
+- **Model**:
+  - Uses `Conv2D`, `Conv2DTranspose`, and custom hyperparameters.
+  - Encapsulated in a custom `GAN` class with build/train methods.
+- **Training**:
+  - Optimizers like `RMSprop` used.
+  - Losses for both Generator and Discriminator are monitored and visualized.
 
-## Challenges and Advanced Models
-- The document notes that training standard GANs can be unstable, leading to issues like:
-    - **Oscillating Loss**: The loss values for the Generator and Discriminator can fluctuate wildly instead of converging .
-    - **Mode Collapse**: The Generator produces a very limited variety of samples, failing to capture the diversity of the training data .
-- **Improved Models**: To address these stability issues, more advanced models were developed:
-    - **WGAN (Wasserstein GAN)**: Uses Wasserstein loss and weight clipping to stabilize training .
-    - **WGAN-GP (WGAN with Gradient Penalty)**: An improvement on WGAN that uses a gradient penalty instead of weight clipping and avoids batch normalization in the critic (discriminator) .
+```python
+gan = GAN(
+    input_dim = (28,28,1),
+    discriminator_learning_rate = 0.0008,
+    generator_learning_rate = 0.0004,
+    z_dim = 100
+)
+gan.train(images, batch_size=64, epochs=2, run_folder=RUN_FOLDER)
+
+# Visualize loss
+plt.plot([x[0] for x in gan.d_losses], color='black')
+plt.plot([x[0] for x in gan.g_losses], color='orange')
+plt.show()
+````
+
+### **Challenges**
+
+* **Oscillating Loss**: Loss values may fluctuate without convergence.
+* **Mode Collapse**: Generator outputs repetitive samples with low diversity.
+
+### **Advanced Variants**
+
+* **WGAN**: Uses Wasserstein distance and weight clipping for stable learning.
+* **WGAN-GP**: Improves WGAN by using gradient penalty and removing batch normalization in the critic.
+
+</details>
+
+<details>
+<summary>KOR (한국어 버전)</summary>
+
+## **생성적 적대 신경망 (GAN)**
+
+### **GAN이란?**
+
+* **생성자(Generator)** 와 **판별자(Discriminator)** 라는 두 개의 신경망이 서로 경쟁하며 학습하는 **생성 모델**.
+* 생성자는 랜덤 노이즈로부터 가짜 데이터를 생성하고, 판별자는 그것이 진짜인지 가짜인지 구별한다.
+* 반복 훈련을 통해 생성자는 점점 더 진짜같은 데이터를 생성하게 된다.
+
+### **핵심 구성 요소**
+
+* **생성자 (G)**: 잠재 벡터(`z`)를 받아서 진짜 같은 이미지를 생성.
+* **판별자 (D)**: 입력이 진짜인지 가짜인지 판단하는 이진 분류기.
+
+  * 진짜 → `1`, 가짜 → `0`
+
+### **학습 과정**
+
+1. **진짜 이미지**로 판별자 학습 (`label = 1`)
+2. **생성된 이미지**로 판별자 학습 (`label = 0`)
+3. 판별자는 고정하고 **생성자만 업데이트** → 생성자가 판별자를 속이도록 학습 (`label → 1`)
+
+### **파이썬 구현 개요**
+
+* **목표**: "Quick, Draw!"의 낙타 이미지(28x28)를 생성하는 GAN 모델 학습.
+* **모델 구성**:
+
+  * `Conv2D`, `Conv2DTranspose` 사용.
+  * `GAN` 클래스에 생성자, 판별자, 훈련 루틴 포함.
+* **학습 및 시각화**:
+
+  * `rmsprop` 옵티마이저 사용.
+  * Generator/Discriminator의 손실 추이를 시각화.
+
+```python
+gan = GAN(
+    input_dim = (28,28,1),
+    discriminator_learning_rate = 0.0008,
+    generator_learning_rate = 0.0004,
+    z_dim = 100
+)
+gan.train(images, batch_size=64, epochs=2, run_folder=RUN_FOLDER)
+
+# 손실 시각화
+plt.plot([x[0] for x in gan.d_losses], color='black')
+plt.plot([x[0] for x in gan.g_losses], color='orange')
+plt.show()
+```
+
+### **학습의 어려움**
+
+* **Loss 진동(Oscillation)**: 손실값이 수렴하지 않고 계속 변동.
+* **모드 붕괴(Mode Collapse)**: 생성자가 다양성 없는 유사한 결과만 반복 생성.
+
+### **고급 GAN 모델**
+
+* **WGAN**: Wasserstein 거리와 가중치 클리핑으로 안정성 향상.
+* **WGAN-GP**: Gradient Penalty 기법 도입, 판별자에서 BatchNorm 제거.
+
+</details>
