@@ -1,35 +1,51 @@
 <details>
 <summary>ENG (English Version)</summary>
 
-# Studying AI Model Training
+## LangChain Chain Design & Memory
 
-## Learning Objectives
-- Develop AI web services using LLM (Large Language Models), RAG (Retrieval-Augmented Generation), and AI Agent technologies.
-- Deploy the AI services developed.
+**Section 1: LangChain Chains**
+- Chain Concept: Modular pipelines combining Prompt→LLM→Parser using LCEL (`chain = prompt | llm | StrOutputParser()`).
+- Chain Types: LLMChain (Q&A/summary), SequentialChain (summary→translation), RouterChain (input-based branching).
 
-## Course Content
-- Hands-on learning of core technologies—LLM, RAG, AI Agents—within a Docker-based environment.
-- Step-by-step skill building:  
-  - Build API servers with Flask or FastAPI.  
-  - Integrate local LLM (e.g., Ollama) and ComfyUI.  
-  - Apply prompt engineering techniques.  
-  - Design and implement RAG systems to enhance contextual retrieval.  
-  - Develop AI Agents to perform complex task orchestration.
+**Section 2: Memory Types**
+- Memory Role: Automatically stores input/output, injects conversation history into prompts for context-aware responses.
+- Types: ConversationBufferMemory (full history), ConversationSummaryMemory (summarized for long chats), ConversationBufferWindowMemory (recent N turns).
+
+**Section 3: Basic Chain Example**
+- JSON Chain: `ChatPromptTemplate | ChatOllama("gemma3:4b") | JsonOutputParser()` for structured text summarization.
+
+**Section 4: Sequential Chain (Summary→Translation)**
+- LCEL Pipeline: `{"summary": summary_chain} | RunnablePassthrough.assign(translated=translate_chain)`; input `{"content": text}` → output `{"summary": "...", "translated": "..."}`.
+
+**Section 5: Memory Implementation**
+- Legacy: `ConversationChain(llm, ConversationBufferMemory())` for simple chatbots.
+- Modern: `RunnableWithMessageHistory(base_chain, get_history, input_messages_key="input", history_messages_key="history")`; uses `MessagesPlaceholder("history")` and session ID config.
+- Flask Chatbot: Cookie-based session recovery, chat deletion, SSE streaming for real-time responses.
 
 </details>
 
 <details>
 <summary>KOR (한국어 버전)</summary>
 
-# 인공지능 모델 훈련 학습
+## LangChain Chain 설계와 메모리
 
-## 학습 목표
-- LLM(대형 언어 모델), RAG(검색 증강 생성), AI 에이전트 기술을 활용한 인공지능 웹 서비스 개발 역량 습득
-- 개발한 서비스의 배포 역량 습득
+**LangChain 체인**
+- 체인 개념: Prompt→LLM→Parser 모듈 파이프라인, LCEL 사용(`chain = prompt | llm | StrOutputParser()`).
+- 체인 유형: LLMChain(Q&A/요약), SequentialChain(요약→번역), RouterChain(입력 분기).
 
-## 교육 내용
-- Docker 기반 실습 환경에서 LLM, RAG, AI 에이전트 핵심 기술을 단계별로 익히기
-- Flask/FastAPI 기반의 API 서버 구축, 로컬 LLM(Ollama)과 ComfyUI 연동, 프롬프트 엔지니어링, RAG 시스템 설계 및 구현, AI 에이전트 개발 순으로 실무 능력 강화
+**메모리 종류**
+- 메모리 역할: input/output 자동 저장, 다음 프롬프트에 대화 히스토리 주입으로 문맥 유지.
+- 종류: ConversationBufferMemory(전체), ConversationSummaryMemory(요약·긴대화), ConversationBufferWindowMemory(최근 N회).
+
+**기본 체인 예제**
+- JSON 체인: `ChatPromptTemplate | ChatOllama("gemma3:4b") | JsonOutputParser()` 구조화 요약.
+
+**순차 체인 (요약→번역)**
+- LCEL 파이프라인: `{"summary": summary_chain} | RunnablePassthrough.assign(translated=translate_chain)`; 입력 `{"content": text}` → 출력 `{"summary": "...", "translated": "..."}`.
+
+**메모리 구현**
+- 구버전: `ConversationChain(llm, ConversationBufferMemory())` 단순 챗봇.
+- 신버전: `RunnableWithMessageHistory(base_chain, get_history, input_messages_key="input", history_messages_key="history")`; `MessagesPlaceholder("history")` + 세션 ID config.
+- Flask 챗봇: 쿠키 세션 복구, 대화 삭제, SSE 스트리밍 실시간 응답.
 
 </details>
-
