@@ -1,35 +1,53 @@
 <details>
 <summary>ENG (English Version)</summary>
 
-# Studying AI Model Training
+## Local LLM Setup & Usage
 
-## Learning Objectives
-- Develop AI web services using LLM (Large Language Models), RAG (Retrieval-Augmented Generation), and AI Agent technologies.
-- Deploy the AI services developed.
+**Section 1: LLM Fundamentals**
+- Prompt Engineering: Crafting effective prompts for LLMs (input quality determines output); key traits—Clarity (specific), Context (background), Instruction (format/tone).
+- LLM Operation: Trained on massive text to predict next words probabilistically; pattern-matching machine, not true reasoning.
+- Major LLMs: ChatGPT (multimodal, creative), Claude (long context, ethical), Gemini (video analysis, cost-effective), Grok-3 (math/coding), DeepSeek/LLaMA (open-source alternatives).
 
-## Course Content
-- Hands-on learning of core technologies—LLM, RAG, AI Agents—within a Docker-based environment.
-- Step-by-step skill building:  
-  - Build API servers with Flask or FastAPI.  
-  - Integrate local LLM (e.g., Ollama) and ComfyUI.  
-  - Apply prompt engineering techniques.  
-  - Design and implement RAG systems to enhance contextual retrieval.  
-  - Develop AI Agents to perform complex task orchestration.
+**Section 2: Local LLM Overview**
+- Local LLM: Runs on personal PC/edge devices (Ollama, LM Studio, llama.cpp); advantages—privacy, offline, cost-free, customizable; drawbacks—hardware demands, setup complexity.
+
+**Section 3: Ollama Installation & Commands**
+- Docker Setup: `docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama`; verify at http://127.0.0.1:11434.
+- Commands: `docker exec -it ollama bash`; `ollama pull gemma3:1b` (download), `ollama list/show/rm/run <model>` (manage/execute).
+
+**Section 4: Prompting Techniques**
+- Zero-Shot: Direct classification ("Text: vacation seems fine. Sentiment:"); Few-Shot: Examples first ("Great movie! // positive"); Chain-of-Thought: "Think step-by-step" for reasoning (apple counting: 10-2-2+5-1=10).
+
+**Section 5: Ollama API Integration**
+- Endpoints: `/api/generate` (single prompt), `/api/chat` (conversational with context).
+- Flask Proxy: Stream responses via POST `/api/generate` or `/api/chat`; forward to Ollama, return NDJSON streaming; templates for web UI.
+- Project: Integrate LLM (Korean→English/image prompts) with ComfyUI for text-to-image pipeline.
 
 </details>
 
 <details>
 <summary>KOR (한국어 버전)</summary>
 
-# 인공지능 모델 훈련 학습
+## Local LLM 구축 및 활용
 
-## 학습 목표
-- LLM(대형 언어 모델), RAG(검색 증강 생성), AI 에이전트 기술을 활용한 인공지능 웹 서비스 개발 역량 습득
-- 개발한 서비스의 배포 역량 습득
+**LLM 기초**
+- 프롬프트 엔지니어링: LLM에 효과적인 입력 설계(입력 품질=출력 품질); 명확성(구체적), 맥락(배경), 지시(형식/톤) 핵심.
+- LLM 동작: 대량 텍스트로 다음 단어 예측 학습; 확률적 패턴 연결, 진짜 사고 아님.
+- 주요 LLM: ChatGPT(멀티모달·창의), Claude(긴 맥락·윤리), Gemini(비디오·가성비), Grok-3(수학·코딩), DeepSeek/LLaMA(오픈소스).
 
-## 교육 내용
-- Docker 기반 실습 환경에서 LLM, RAG, AI 에이전트 핵심 기술을 단계별로 익히기
-- Flask/FastAPI 기반의 API 서버 구축, 로컬 LLM(Ollama)과 ComfyUI 연동, 프롬프트 엔지니어링, RAG 시스템 설계 및 구현, AI 에이전트 개발 순으로 실무 능력 강화
+**Local LLM 개요**
+- Local LLM: 로컬 PC/엣지에서 실행(Ollama, LM Studio, llama.cpp); 장점—프라이버시·오프라인·무료·커스터마이징; 단점—하드웨어·설정 복잡.
+
+**Ollama 설치 및 명령어**
+- Docker 구축: `docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 ollama/ollama`; http://127.0.0.1:11434 확인.
+- 명령어: `docker exec -it ollama bash`; `ollama pull gemma3:1b`(다운로드), `ollama list/show/rm/run <model>`(관리·실행).
+
+**프롬프트 기법**
+- Zero-Shot: 직접 분류("휴가 괜찮을 것 같아요. 감정:"), Few-Shot: 예시 먼저("멋지다! // 긍정"), Chain-of-Thought: "단계별 생각"(사과 계산: 10-2-2+5-1=10).
+
+**Ollama API 연동**
+- 엔드포인트: `/api/generate`(단일), `/api/chat`(대화형 맥락).
+- Flask 프록시: POST `/api/generate` 또는 `/api/chat` 스트리밍; Ollama로 전달 후 NDJSON 반환; 웹 UI 템플릿.
+- 과제: LLM(한글→영문/이미지 프롬프트) + ComfyUI 통합 텍스트-이미지 파이프라인.
 
 </details>
-
