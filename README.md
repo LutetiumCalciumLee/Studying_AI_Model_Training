@@ -1,7 +1,7 @@
 <details>
 <summary>ENG (English Version)</summary>
 
-## **AI Model Training Summary**
+## **AI Model Training**
 
 **File Overview**: Compilation of Docker, Flask, and ML/DL project practice notes.
 
@@ -38,7 +38,7 @@
 <details>
 <summary>KOR (한국어 버전)</summary>
 
-## **AI 모델 학습 요약**
+## **AI 모델 학습**
 
 **파일 개요**: Docker, Flask, 머신러닝/DL 프로젝트 실습 노트 모음.
 
