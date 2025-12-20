@@ -1,35 +1,45 @@
 <details>
 <summary>ENG (English Version)</summary>
 
-# Studying AI Model Training
+## LangChain Tools & Agents 
 
-## Learning Objectives
-- Develop AI web services using LLM (Large Language Models), RAG (Retrieval-Augmented Generation), and AI Agent technologies.
-- Deploy the AI services developed.
+**Section 1: LangChain Tools**
+- Tool Decorator: `@tool` creates functions for agents—`calc(expr)` (arithmetic calculator using `ast`), `web_search(query)` (DuckDuckGo via `ddgs` library).
+- Calc Tool: Safe expression evaluation (`+,-,*,/,()`) with `ast.parse()` and operator mapping.
+- Web Search Tool: Returns formatted results (`title | URL | snippet`) for agent readability.
 
-## Course Content
-- Hands-on learning of core technologies—LLM, RAG, AI Agents—within a Docker-based environment.
-- Step-by-step skill building:  
-  - Build API servers with Flask or FastAPI.  
-  - Integrate local LLM (e.g., Ollama) and ComfyUI.  
-  - Apply prompt engineering techniques.  
-  - Design and implement RAG systems to enhance contextual retrieval.  
-  - Develop AI Agents to perform complex task orchestration.
+**Section 2: ReAct Agent Implementation**
+- ReAct Prompt: "Reasoning + Acting" format—`Question → Thought → Action → Action Input → Observation` loop until `Final Answer`.
+- Agent Creation: `create_react_agent(llm, tools, react_prompt)` + `AgentExecutor(agent, tools, verbose=True)`.
+- Example Query: "I'm curious about the latest Seoul population figures. Please search and give me a brief summary. Also calculate 1+2*3 at the end." → Agent searches population, summarizes, calculates `1+2*3=7`.
+
+**Setup Requirements**
+```
+pip install ddgs
+```
+Uses `ChatOllama("gemma3:4b")` with Ollama backend.
 
 </details>
 
 <details>
 <summary>KOR (한국어 버전)</summary>
 
-# 인공지능 모델 훈련 학습
+## LangChain Tools & Agent
 
-## 학습 목표
-- LLM(대형 언어 모델), RAG(검색 증강 생성), AI 에이전트 기술을 활용한 인공지능 웹 서비스 개발 역량 습득
-- 개발한 서비스의 배포 역량 습득
+**LangChain Tools**
+- Tool 데코레이터: `@tool`로 에이전트용 함수 생성—`calc(expr)`(산술 계산기 `ast` 사용), `web_search(query)`(DuckDuckGo `ddgs` 라이브러리).
+- Calc Tool: 안전한 식 평가(`+,-,*,/,()`) `ast.parse()` + 연산자 매핑.
+- Web Search Tool: 에이전트 읽기 쉬운 형식(`제목 | URL | 스니펫`) 반환.
 
-## 교육 내용
-- Docker 기반 실습 환경에서 LLM, RAG, AI 에이전트 핵심 기술을 단계별로 익히기
-- Flask/FastAPI 기반의 API 서버 구축, 로컬 LLM(Ollama)과 ComfyUI 연동, 프롬프트 엔지니어링, RAG 시스템 설계 및 구현, AI 에이전트 개발 순으로 실무 능력 강화
+**ReAct 에이전트 구현**
+- ReAct 프롬프트: "추론+행동" 형식—`Question → Thought → Action → Action Input → Observation` 반복 → `Final Answer`.
+- 에이전트 생성: `create_react_agent(llm, tools, react_prompt)` + `AgentExecutor(agent, tools, verbose=True)`.
+- 예제 쿼리: "서울인구최신수치가궁금해. 검색하고간단히요약해줘. 마지막에1+2*3도계산해." → 인구 검색·요약·`1+2*3=7` 계산.
+
+**설치 요구사항**
+```
+pip install ddgs
+```
+Ollama 백엔드 `ChatOllama("gemma3:4b")` 사용.
 
 </details>
-
