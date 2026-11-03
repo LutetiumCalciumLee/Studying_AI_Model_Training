@@ -461,7 +461,7 @@ Connection settings for HeidiSQL or another database client:
 <details>
 <summary>KOR (한국어 버전)</summary>
 
-# Week 01 — Docker 기초와 Python 개발 환경 구축
+# 1주차 — Docker 기초와 Python 개발 환경 구축
 
 Docker의 주요 개념과 기본 명령어 학습 및 Windows에서의 컨테이너 기반 Python 개발 환경 구성.
 
