@@ -9,9 +9,9 @@ This repository contains my notes from studying AI Model Training as part of the
 
 ## [Week 2. Flask API Server Development & Iris Classification](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_02)
 
-## [Week 3. Machine Learning Basics: k-NN, Model Evaluation, Ensemble Learning & k-Means](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_03)
+## [Week 3. MNIST CNN API Development with Flask & Principal Component Analysis (PCA)](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_03)
 
-## [Week 4. MNIST CNN API Development with Flask & Principal Component Analysis (PCA)](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_04)
+## [Week 4. Machine Learning Basics: k-NN, Model Evaluation, Ensemble Learning & k-Means](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_04)
 
 ## [Week 5. Variational Autoencoder (VAE) & Face Image Generation](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_05)
 
@@ -40,15 +40,15 @@ This repository contains my notes from studying AI Model Training as part of the
 
 ## [2주차. Flask API 서버 개발과 Iris 품종 분류](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_02)
 
-## [3주차. 머신러닝 기초: k-NN, 모델 평가, 앙상블 학습과 k-Means](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_03)
+## [3주차. Flask 기반 MNIST CNN API 개발과 주성분 분석(PCA)](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_03)
 
-## [4주차. Flask 기반 MNIST CNN API 개발과 주성분 분석(PCA)](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_04)
+## [4주차. 머신러닝 기초 : k-NN, 모델 평가, 앙상블 학습과 k-Means](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_04)
 
 ## [5주차. 변분 오토인코더(VAE)와 얼굴 이미지 생성](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_05)
 
 ## [6주차. 생성적 적대 신경망(GAN), WGAN과 WGAN-GP](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_06)
 
-## [7주차. 이미지 생성 AI: Stable Diffusion과 ComfyUI](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_07)
+## [7주차. 이미지 생성 AI : Stable Diffusion과 ComfyUI](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_07)
 
 ## [8주차. Ollama를 활용한 로컬 LLM 구축과 활용](https://github.com/LutetiumCalciumLee/Studying_AI_Model_Training/tree/Week_08)
 
