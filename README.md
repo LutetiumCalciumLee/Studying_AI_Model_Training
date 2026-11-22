@@ -181,7 +181,7 @@ print(result["cluster"].value_counts().sort_index())
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # Week 04 — 머신러닝 기초와 분류·군집화
