@@ -24,7 +24,7 @@
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 ## LangChain Chain 설계와 메모리
