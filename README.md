@@ -29,7 +29,7 @@ This repository contains my notes from studying AI Model Training as part of the
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # AI 모델 학습
