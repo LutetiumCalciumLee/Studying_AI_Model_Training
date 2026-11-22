@@ -458,7 +458,7 @@ Connection settings for HeidiSQL or another database client:
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # 1주차 — Docker 기초와 Python 개발 환경 구축
