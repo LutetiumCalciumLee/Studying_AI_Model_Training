@@ -527,7 +527,7 @@ No retraining required when reusing the saved model in the same compatible envir
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # 2주차 — Flask와 Docker를 활용한 Python API 서버 개발
