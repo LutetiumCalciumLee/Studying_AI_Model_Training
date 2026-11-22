@@ -190,7 +190,7 @@ python train_gan.py --mnist
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # Week 06 — 생성적 적대 신경망과 이미지 생성
