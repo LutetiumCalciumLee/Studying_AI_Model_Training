@@ -219,7 +219,7 @@ pm2 logs comfyui
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # Week 07 — Stable Diffusion과 ComfyUI를 활용한 이미지 생성
