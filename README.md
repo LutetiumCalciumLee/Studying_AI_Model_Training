@@ -486,7 +486,7 @@ For PCA as a predictive model preprocessing step, fitting of the scaler and PCA 
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # 3주차 — TensorFlow와 Flask를 활용한 MNIST 손글씨 분류 및 PCA
