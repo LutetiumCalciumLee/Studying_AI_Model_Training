@@ -267,7 +267,7 @@ python train_faces_vae.py
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 # 5주차 — 변분 오토인코더와 이미지 생성
