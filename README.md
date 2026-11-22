@@ -21,7 +21,7 @@ Uses `ChatOllama("gemma3:4b")` with Ollama backend.
 
 </details>
 
-<details>
+<details open>
 <summary>KOR (한국어 버전)</summary>
 
 ## LangChain Tools & Agent
